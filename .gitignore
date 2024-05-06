@@ -1,8 +1,8 @@
 
 *.jpg
+*.RData
 .DS_Store
 .Rhistory
-.RData
 Preliminary Study/Homogeneity/Cosine/allminilm.csv
 Preliminary Study/Homogeneity/Cosine/distilroberta.csv
 Preliminary Study/Homogeneity/Cosine/mpnetbase.csv
