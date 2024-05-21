@@ -65,8 +65,8 @@ fit <- stm(documents = out$documents,
 
 # Save as .RData file ----------------------------------------------------------
 
-# save.image('stm_study_1.RData')
-load('stm_study_1.RData')
+# save.image('stm_prelim_study.RData')
+load('stm_prelim_study.RData')
 
 # Extract expected topic proportions -------------------------------------------
 
