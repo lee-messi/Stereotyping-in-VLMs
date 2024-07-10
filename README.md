@@ -4,7 +4,7 @@ The abstract for the paper is as follows:
 
 > Recent advancements have brought artificial intelligence (AI) closer to simulating human-like perception through the development of Vision Language Models (VLMs). These models, exemplified by GPT-4V, adeptly integrate textual and visual data, building on the capabilities of Large Language Models. However, despite their advanced abilities, VLMs inherit biases of both modalities. Our study explores how VLMs perpetuate racial and gender stereotypes, focusing on homogeneity bias and trait associations. We find that GPT-4V represents subordinate racial and gender groups with greater homogeneity than their dominant group counterparts and distinct, generally positive traits that diverge from typical racial and gender stereotypes. Importantly, we find that greater racial prototypicality and femininity lead to more VLM stereotyping. We explore the underlying reasons behind this behavior and discuss its implications, emphasizing the importance of addressing these biases as VLMs come to mirror human perception. 
 
-This paper is under review, but comments are still very welcome. Please feel free to send us an [email](mailto:hojunlee@wustl.edu), or open an "Issue" here. For detailed instructions for reproducing analysis, refer to the [Instructions.md](Instructions.md) document.
+This paper is under review, but comments are still very welcome. Please feel free to open an "Issue" here. For detailed instructions for reproducing analysis, refer to the [Instructions.md](Instructions.md) document.
 
 ## Data Availability Statement
 
