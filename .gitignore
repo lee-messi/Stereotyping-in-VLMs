@@ -1,0 +1,10 @@
+
+.DS_Store
+.Rhistory
+
+*.history
+*.RData
+*.jpg
+*distilroberta.csv
+*mpnetbase.csv
+*allminilm.csv
