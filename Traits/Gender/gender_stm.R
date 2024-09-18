@@ -2,7 +2,7 @@
 ## Anonymous
 # Prototypicality Affects Stereotyping in Vision-Language Models
 
-## Script date: 25 Aug 2024
+## Script date: 5 Sept 2024
 
 # Install and/or load packages -------------------------------------------------
 
@@ -53,6 +53,9 @@ gpt4v = remove_names(gpt4v)
 gpt4o = remove_names(gpt4o)
 gpt4omini = remove_names(gpt4omini)
 all_texts = rbind(gpt4v, gpt4o, gpt4omini)
+all_texts = all_texts %>% 
+  mutate(model = factor(model)) %>%
+  mutate(model = relevel(model, "GPT-4V"))
 
 # Prepare text for the STM -----------------------------------------------------
 
@@ -150,8 +153,7 @@ summary(estimateEffect(c(7) ~ gender + model, fit, metadata = meta))
 set.seed(1048596)
 summary(estimateEffect(c(8) ~ gender + model, fit, metadata = meta))
 
-
-# Main effect of femtypicality -----------------------------------------------
+# Main effect of femininity -----------------------------------------------
 
 set.seed(1048596)
 summary(estimateEffect(c(1) ~ fem + model, fit, metadata = meta))
@@ -180,26 +182,26 @@ summary(estimateEffect(c(8) ~ fem + model, fit, metadata = meta))
 # Interaction effect -----------------------------------------------------------
 
 set.seed(1048596)
-summary(estimateEffect(c(1) ~ gender * fem + model, fit, metadata = meta))
+summary(estimateEffect(c(1) ~ gender * fem * model, fit, metadata = meta))
 
 set.seed(1048596)
-summary(estimateEffect(c(2) ~ gender * fem + model, fit, metadata = meta))
+summary(estimateEffect(c(2) ~ gender * fem * model, fit, metadata = meta))
 
 set.seed(1048596)
-summary(estimateEffect(c(3) ~ gender * fem + model, fit, metadata = meta))
+summary(estimateEffect(c(3) ~ gender * fem * model, fit, metadata = meta))
 
 set.seed(1048596)
-summary(estimateEffect(c(4) ~ gender * fem + model, fit, metadata = meta))
+summary(estimateEffect(c(4) ~ gender * fem * model, fit, metadata = meta))
 
 set.seed(1048596)
-summary(estimateEffect(c(5) ~ gender * fem + model, fit, metadata = meta))
+summary(estimateEffect(c(5) ~ gender * fem * model, fit, metadata = meta))
 
 set.seed(1048596)
-summary(estimateEffect(c(6) ~ gender * fem + model, fit, metadata = meta))
+summary(estimateEffect(c(6) ~ gender * fem * model, fit, metadata = meta))
 
 set.seed(1048596)
-summary(estimateEffect(c(7) ~ gender * fem + model, fit, metadata = meta))
+summary(estimateEffect(c(7) ~ gender * fem * model, fit, metadata = meta))
 
 set.seed(1048596)
-summary(estimateEffect(c(8) ~ gender * fem + model, fit, metadata = meta))
+summary(estimateEffect(c(8) ~ gender * fem * model, fit, metadata = meta))
 

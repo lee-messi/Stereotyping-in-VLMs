@@ -2,7 +2,7 @@
 ## Anonymous
 # Prototypicality Affects Stereotyping in Vision-Language Models
 
-## Script date: 25 Aug 2024
+## Script date: 5 Sept 2024
 
 # Install and/or load packages -------------------------------------------------
 
@@ -21,7 +21,7 @@ load('../gender_stm.RData')
 
 plot.int <- function(topic_number, topic_label){
   
-  formula_str <- paste("c(", topic_number, ") ~ gender * fem + model")
+  formula_str <- paste("c(", topic_number, ") ~ gender * fem * model")
   formula_obj <- as.formula(formula_str)
   
   effect_estimate = estimateEffect(formula_obj, fit, metadata = meta)

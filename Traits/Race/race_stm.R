@@ -2,7 +2,7 @@
 ## Anonymous
 # Prototypicality Affects Stereotyping in Vision-Language Models
 
-## Script date: 28 Aug 2024
+## Script date: 4 Sept 2024
 
 # Install and/or load packages -------------------------------------------------
 
@@ -15,7 +15,7 @@ if(!require("readxl")){install.packages("readxl", dependencies = TRUE); require(
 
 # Load CFD codebook ------------------------------------------------------------
 
-cfd <- read_excel('../../CFD/CFD.xlsx', 'CFD U.S. Norming Data')
+cfd <- read_excel('../CFD/CFD.xlsx', 'CFD U.S. Norming Data')
 column.names <- cfd[7,]
 cfd <- cfd[8:nrow(cfd),]
 colnames(cfd) <- column.names
@@ -33,9 +33,9 @@ preprocess_race <- function(file_name, model_name){
   return(df)
 }
 
-gpt4v = preprocess_race('../../../Data/GPT-4V/Race/study_1.csv', "GPT-4V")
-gpt4o = preprocess_race('../../../Data/GPT-4o/Race/study_1.csv', "GPT-4o")
-gpt4omini = preprocess_race('../../../Data/GPT-4o-mini/Race/study_1.csv', "GPT-4o-mini")
+gpt4v = preprocess_race('../../Data/GPT-4V/Race/study_1.csv', "GPT-4V")
+gpt4o = preprocess_race('../../Data/GPT-4o/Race/study_1.csv', "GPT-4o")
+gpt4omini = preprocess_race('../../Data/GPT-4o-mini/Race/study_1.csv', "GPT-4o-mini")
 
 # Remove names -----------------------------------------------------------------
 
@@ -53,6 +53,9 @@ gpt4v = remove_names(gpt4v)
 gpt4o = remove_names(gpt4o)
 gpt4omini = remove_names(gpt4omini)
 all_texts = rbind(gpt4v, gpt4o, gpt4omini)
+all_texts = all_texts %>% 
+  mutate(model = factor(model)) %>%
+  mutate(model = relevel(model, "GPT-4V"))
 
 # Prepare text for the STM -----------------------------------------------------
 
@@ -150,7 +153,6 @@ summary(estimateEffect(c(7) ~ race + model, fit, metadata = meta))
 set.seed(1048596)
 summary(estimateEffect(c(8) ~ race + model, fit, metadata = meta))
 
-
 # Main effect of prototypicality -----------------------------------------------
 
 set.seed(1048596)
@@ -180,26 +182,26 @@ summary(estimateEffect(c(8) ~ proto + model, fit, metadata = meta))
 # Interaction effect -----------------------------------------------------------
 
 set.seed(1048596)
-summary(estimateEffect(c(1) ~ race * proto + model, fit, metadata = meta))
+summary(estimateEffect(c(1) ~ race * proto * model, fit, metadata = meta))
 
 set.seed(1048596)
-summary(estimateEffect(c(2) ~ race * proto + model, fit, metadata = meta))
+summary(estimateEffect(c(2) ~ race * proto * model, fit, metadata = meta))
 
 set.seed(1048596)
-summary(estimateEffect(c(3) ~ race * proto + model, fit, metadata = meta))
+summary(estimateEffect(c(3) ~ race * proto * model, fit, metadata = meta))
 
 set.seed(1048596)
-summary(estimateEffect(c(4) ~ race * proto + model, fit, metadata = meta))
+summary(estimateEffect(c(4) ~ race * proto * model, fit, metadata = meta))
 
 set.seed(1048596)
-summary(estimateEffect(c(5) ~ race * proto + model, fit, metadata = meta))
+summary(estimateEffect(c(5) ~ race * proto * model, fit, metadata = meta))
 
 set.seed(1048596)
-summary(estimateEffect(c(6) ~ race * proto + model, fit, metadata = meta))
+summary(estimateEffect(c(6) ~ race * proto * model, fit, metadata = meta))
 
 set.seed(1048596)
-summary(estimateEffect(c(7) ~ race * proto + model, fit, metadata = meta))
+summary(estimateEffect(c(7) ~ race * proto * model, fit, metadata = meta))
 
 set.seed(1048596)
-summary(estimateEffect(c(8) ~ race * proto + model, fit, metadata = meta))
+summary(estimateEffect(c(8) ~ race * proto * model, fit, metadata = meta))
 
