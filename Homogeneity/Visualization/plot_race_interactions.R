@@ -49,6 +49,10 @@ all_cosines = rbind(gpt4v_mpnetbase, gpt4v_distilroberta, gpt4v_allminilm,
                                               "all-MiniLM-L12-v2"))) %>%
   mutate(model = factor(model, levels = c("GPT-4V", "GPT-4o", "GPT-4o-mini")))
 
+rm(gpt4v_mpnetbase, gpt4v_distilroberta, gpt4v_allminilm,
+   gpt4o_mpnetbase, gpt4o_distilroberta, gpt4o_allminilm,
+   gpt4omini_mpnetbase, gpt4omini_distilroberta, gpt4omini_allminilm)
+
 # Interaction plot for all model specifications --------------------------------
 
 ggplot(all_cosines, aes(x = proto, y = cosine, group = race, color = race)) + 
@@ -71,6 +75,6 @@ ggplot(all_cosines, aes(x = proto, y = cosine, group = race, color = race)) +
 
 # Save plot --------------------------------------------------------------------
 
-ggsave("interactions_race.pdf", width = 9, height = 6, 
+ggsave("interactions_race.pdf", width = 7, height = 7, 
        dpi = "retina", device = cairo_pdf)
 

@@ -50,6 +50,10 @@ all_cosines = rbind(gpt4v_mpnetbase, gpt4v_distilroberta, gpt4v_allminilm,
   mutate(model = factor(model, levels = c("GPT-4V", "GPT-4o", "GPT-4o-mini"))) %>%
   mutate(gender = factor(gender, levels = c("Women", "Men")))
 
+rm(gpt4v_mpnetbase, gpt4v_distilroberta, gpt4v_allminilm,
+   gpt4o_mpnetbase, gpt4o_distilroberta, gpt4o_allminilm,
+   gpt4omini_mpnetbase, gpt4omini_distilroberta, gpt4omini_allminilm)
+
 # Interaction plot for all model specifications --------------------------------
 
 ggplot(all_cosines, aes(x = fem, y = cosine, group = gender, color = gender)) + 
@@ -72,6 +76,6 @@ ggplot(all_cosines, aes(x = fem, y = cosine, group = gender, color = gender)) +
 
 # Save plot --------------------------------------------------------------------
 
-ggsave("interactions_gender.pdf", width = 9, height = 6, 
+ggsave("interactions_gender.pdf", width = 7, height = 7, 
        dpi = "retina", device = cairo_pdf)
 
