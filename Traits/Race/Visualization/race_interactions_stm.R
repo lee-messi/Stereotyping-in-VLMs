@@ -63,7 +63,7 @@ plot.int <- function(topic_number, topic_label){
 }
 
 topic.1.int <- plot.int(1, "Community")
-topic.2.int <- plot.int(2, "Stars")
+topic.2.int <- plot.int(2, "Astronomy")
 topic.3.int <- plot.int(3, "Art")
 topic.4.int <- plot.int(4, "Music")
 topic.5.int <- plot.int(5, "Software Development")
