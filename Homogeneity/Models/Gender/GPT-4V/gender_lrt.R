@@ -2,7 +2,7 @@
 ## Anonymous
 # Prototypicality Affects Stereotyping in Vision-Language Models
 
-## Script date: 25 Aug 2024
+## Script date: 28 Oct 2024 
 
 # Install and/or load packages -------------------------------------------------
 
@@ -17,34 +17,34 @@ load('../../../Data/Gender/GPT-4V/gpt4v.RData')
 
 # Likelihood Ratio Tests (LRTs) for Gender and Femininity ----------------------
 
-mixed(cosine ~ 1 + race + proto + (1|pair_id), 
+mixed(cosine ~ 1 + gender + fem + (1|pair_id), 
       data = gpt4v_mpnetbase, 
       control = lmerControl(optimizer = "nmkbw", calc.derivs = FALSE),
       method = "LRT")
 
-mixed(cosine ~ 1 + race + proto + (1|pair_id), 
+mixed(cosine ~ 1 + gender + fem + (1|pair_id), 
       data = gpt4v_distilroberta, 
       control = lmerControl(optimizer = "nmkbw", calc.derivs = FALSE),
       method = "LRT")
 
-mixed(cosine ~ 1 + race + proto + (1|pair_id), 
+mixed(cosine ~ 1 + gender + fem + (1|pair_id), 
       data = gpt4v_allminilm, 
       control = lmerControl(optimizer = "nmkbw", calc.derivs = FALSE),
       method = "LRT")
 
 # Likelihood Ratio Tests (LRTs) for the Interaction effect ----------------------
 
-mixed(cosine ~ 1 + race : proto + (1|pair_id), 
+mixed(cosine ~ 1 + gender : fem + (1|pair_id), 
       data = gpt4v_mpnetbase, 
       control = lmerControl(optimizer = "nmkbw", calc.derivs = FALSE),
       method = "LRT")
 
-mixed(cosine ~ 1 + race : proto + (1|pair_id), 
+mixed(cosine ~ 1 + gender : fem + (1|pair_id), 
       data = gpt4v_distilroberta, 
       control = lmerControl(optimizer = "nmkbw", calc.derivs = FALSE),
       method = "LRT")
 
-mixed(cosine ~ 1 + race : proto + (1|pair_id), 
+mixed(cosine ~ 1 + gender : fem + (1|pair_id), 
       data = gpt4v_allminilm, 
       control = lmerControl(optimizer = "nmkbw", calc.derivs = FALSE),
       method = "LRT")
